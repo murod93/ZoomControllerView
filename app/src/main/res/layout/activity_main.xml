@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Move to zoom!"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/brightness_slider_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.minmax.zoom.ZoomView
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/brightness_slider_view"
+        android:layout_width="100dp"
+        android:layout_height="250dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:zoom_thumb_color="@color/pink"
+        app:zoom_pointer_radius="10dp"
+        app:zoom_track_bg_color="#DFDFDF"
+        app:zoom_track_bg_thickness="3dp"
+        app:zoom_track_fg_color="@color/pink"
+        app:zoom_track_fg_thickness="3dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
