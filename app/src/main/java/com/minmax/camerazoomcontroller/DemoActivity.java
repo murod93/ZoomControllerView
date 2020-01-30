@@ -18,9 +18,12 @@ public class DemoActivity extends AppCompatActivity {
         ZoomView zoomView = findViewById(R.id.zoom_controller_view);
         TextView textView = findViewById(R.id.textView);
 
+        textView.setOnClickListener(view -> {
+            zoomView.setProgress(0);
+        });
+
         zoomView.setOnSliderProgressChangeListener(progress -> {
             Log.e("DemoActivity", String.format("progress: %s", String.valueOf(progress)));
-
             textView.setText(String.format("%.1f",4*progress));
 
         });

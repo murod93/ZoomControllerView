@@ -117,18 +117,24 @@ class ZoomView : View {
         mThumbFgPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         mThumbFgPaint!!.style = Paint.Style.FILL
         mThumbFgPaint!!.color = colorDefaultFg
+        mThumbFgPaint!!.setShadowLayer(5f, 1f, 1f, Color.GRAY)
+
 
         mTrackBgPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         mTrackBgPaint!!.style = Paint.Style.FILL
         mTrackBgPaint!!.color = colorDefaultBg
+        mTrackBgPaint!!.setShadowLayer(5f, 1f, 1f, Color.GRAY)
+
 
         mTrackFgPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         mTrackFgPaint!!.style = Paint.Style.FILL
         mTrackFgPaint!!.color = colorDefaultFg
+        mTrackFgPaint!!.setShadowLayer(5f, 1f, 1f, Color.GRAY)
 
         mTextPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         mTextPaint!!.style = Paint.Style.FILL
         mTextPaint!!.color = COLOR_TEXT
+        mTextPaint!!.setShadowLayer(5f, 1f, 1f, Color.GRAY)
 
         mTrackRect = RectF()
 

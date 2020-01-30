@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.minmax.zoom.ZoomView
-        android:background="@color/black30_transparent"
         android:id="@+id/zoom_controller_view"
         android:layout_width="50dp"
         android:layout_height="200dp"
