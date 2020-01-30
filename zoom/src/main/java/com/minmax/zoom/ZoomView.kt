@@ -281,7 +281,11 @@ class ZoomView : View {
     }
 
     private val r = Rect()
-
+    /**
+     * This function draws current controller value
+     * @param canvas
+     * @param text
+     */
     private fun drawCenter(
         canvas: Canvas,
         text: String) {
@@ -294,7 +298,6 @@ class ZoomView : View {
         val y = 50f//cHeight / 2f + r.height() / 2f - r.bottom
         canvas.drawText(text, x, y, mTextPaint!!)
     }
-
 
     /**
      * This function is used to draw pointer circle
@@ -328,7 +331,6 @@ class ZoomView : View {
      */
     private fun drawBgCircles(canvas: Canvas,
                               pointerRadius: Int){
-
         // drawing background with circles
         val width = width - paddingLeft - paddingRight
         val height = height - paddingTop - paddingBottom - 2 * pointerRadius - 2*mArrowHeight - mTextSize - mPaddingBetweenTextAndArrow
@@ -346,7 +348,7 @@ class ZoomView : View {
             canvas.drawCircle(
                 (paddingLeft + leftOffset + pointerRadius).toFloat(),
                 paddingTop.toFloat() + mTextSize + mArrowHeight + pointerRadius + (i * height/numOfCircles),
-                smCircleRadius.toFloat()+(i/5),
+                smCircleRadius.toFloat()+((numOfCircles - i)/5),
                 mThumbFgPaint!!
             )
         }
@@ -362,19 +364,21 @@ class ZoomView : View {
         val width = width - paddingLeft - paddingRight
         val height = height - paddingTop - mTextSize - mPaddingBetweenTextAndArrow
 
+        val leftOffset = width - mThumbRadius * 2 shr 1
+
         mThumbFgPaint!!.style = Paint.Style.STROKE
         mThumbFgPaint!!.strokeWidth = 5f
 
         // startX, startY, stopX, stopY
-        canvas.drawLine((width/2).toFloat(),
+        canvas.drawLine((paddingLeft+leftOffset).toFloat(),
             height.toFloat()+mPaddingBetweenTextAndArrow,
-            (paddingLeft + mThumbRadius).toFloat(),
+            (paddingLeft + leftOffset + mThumbRadius).toFloat(),
             (height+24+mPaddingBetweenTextAndArrow).toFloat(),
             mThumbFgPaint!!)
 
-        canvas.drawLine((paddingLeft + mThumbRadius).toFloat(),
+        canvas.drawLine((leftOffset + paddingLeft + mThumbRadius).toFloat(),
             (height+24 + mPaddingBetweenTextAndArrow).toFloat(),
-            (width - paddingRight + mThumbRadius).toFloat(),
+            (paddingLeft + leftOffset + 2 * mThumbRadius).toFloat(),
             height.toFloat()+mPaddingBetweenTextAndArrow,
             mThumbFgPaint!!)
     }
@@ -387,20 +391,22 @@ class ZoomView : View {
         canvas: Canvas
     ){
         val width = width - paddingLeft - paddingRight
+        val leftOffset = width - mThumbRadius * 2 shr 1
+
 
         mThumbFgPaint!!.style = Paint.Style.STROKE
         mThumbFgPaint!!.strokeWidth = 5f
 
         // startX, startY, stopX, stopY
-        canvas.drawLine((width/2).toFloat(),
+        canvas.drawLine((paddingLeft+leftOffset).toFloat(),
             (mTextSize+paddingTop+30+mPaddingBetweenTextAndArrow).toFloat(),
-            (paddingLeft + mThumbRadius).toFloat(),
+            (paddingLeft + leftOffset + mThumbRadius).toFloat(),
             (mTextSize+paddingTop+mPaddingBetweenTextAndArrow).toFloat(),
             mThumbFgPaint!!)
 
-        canvas.drawLine((paddingLeft + mThumbRadius).toFloat(),
+        canvas.drawLine((leftOffset + paddingLeft + mThumbRadius).toFloat(),
             (mTextSize + paddingTop+mPaddingBetweenTextAndArrow).toFloat(),
-            (width - paddingRight + mThumbRadius).toFloat(),
+            (paddingLeft + leftOffset + 2 * mThumbRadius).toFloat(),
             (mTextSize + paddingTop + 30+mPaddingBetweenTextAndArrow).toFloat(),
             mThumbFgPaint!!)
     }

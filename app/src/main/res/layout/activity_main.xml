@@ -20,8 +20,8 @@
     <com.minmax.zoom.ZoomView
         android:background="@color/colorPrimaryDark"
         android:id="@+id/zoom_controller_view"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_height="500dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
